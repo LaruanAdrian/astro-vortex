@@ -19,7 +19,7 @@ let   lastFireTime = 0;
 const bulletImage = new Image();
 bulletImage.src   = 'assets/bullets.png';
 
-const bulletScale  = 0.5;    // 50% of ship’s dynamic scale
+const bulletScale  = 0.2;    // 50% of ship’s dynamic scale
 let   bulletWidth  = 0;
 let   bulletHeight = 0;
 const bulletSpeed  = 7;
@@ -55,11 +55,12 @@ window.addEventListener('keydown', e => {
   if (k === 'o') {
     const now = performance.now();
     if (now - lastFireTime >= FIRE_RATE) {
-      bullets.push({
-        x:        player.x + player.width,
-        y:        player.y + player.height/2 - bulletHeight/2,
-        createdAt: now
-      });
+    bullets.push({
+  x: player.x + player.width - 10,
+  y: player.y + player.height / 2 - bulletHeight / 2 +10,
+  createdAt: now
+});
+
       lastFireTime = now;
     }
   }
